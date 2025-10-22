@@ -1,0 +1,33 @@
+{
+  // Sui dev container leveraging the official Mysten Labs image.
+  "name": "sui_dev",
+  "image": "mysten/sui-tools:devnet",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Mysten.move"
+      ]
+    }
+  },
+  // 起動毎に最新の Sui CLI へ更新
+  "postStartCommand": "bash .devcontainer/update-on-start.sh",
+  // コンテナ作成時に corepack で pnpm を有効化し、app 配下で初回依存関係をインストール
+  "postCreateCommand": "corepack enable && corepack prepare pnpm@latest --activate && cd app && (pnpm install --frozen-lockfile || pnpm install)",
+  // ~/.local/bin を先頭に追加して優先解決
+  "remoteEnv": {
+    "PATH": "${containerEnv:HOME}/.local/bin:${containerEnv:PATH}"
+  },
+  // フロントエンド開発のポート
+  "forwardPorts": [3000, 5173],
+  "portsAttributes": {
+    "3000": { "label": "Web (Next.js)" },
+    "5173": { "label": "Web (Vite)" }
+  }
+}

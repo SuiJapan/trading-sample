@@ -1,0 +1,18 @@
+##############################################
+# Root ignore (app/ は app/.gitignore に委譲)
+##############################################
+
+# Package managers / caches
+/.pnpm-store/
+/node_modules/
+
+# Logs
+*.log
+logs
+
+# OS junk
+**/.DS_Store
+Thumbs.db
+
+# Chain tool (Sui CLI)
+.sui/
