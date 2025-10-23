@@ -1,0 +1,10 @@
+[package]
+name = "escrow"
+version = "0.0.1"
+edition = "2024.beta"
+
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui", subdir = "crates/sui-framework/packages/sui-framework", rev = "main" }
+
+[addresses]
+escrow = "0x0"

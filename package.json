@@ -1,0 +1,21 @@
+{
+	"name": "trading-demo",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"keywords": [],
+	"author": "",
+	"engines": {
+		"node": ">=22"
+	},
+	"scripts": {
+		"biome:format": "npx biome format --write .",
+		"biome:check": "npx biome check --write .",
+		"frontend": "pnpm --filter frontend",
+		"api": "pnpm --filter api"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4"
+	},
+	"packageManager": "pnpm@10.13.1"
+}
